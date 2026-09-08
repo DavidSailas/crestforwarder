@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove scrollbar up/down arrow buttons everywhere on the site */
+::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+html {
+    scrollbar-width: thin;
+}
+
+/* Branded scrollbar for the Get a Quote modal (and reusable anywhere else) */
+.brand-scroll {
+    scrollbar-width: thin !important;
+    scrollbar-color: theme('colors.crest-primary') transparent !important;
+}
+.brand-scroll::-webkit-scrollbar {
+    width: 6px !important;
+}
+.brand-scroll::-webkit-scrollbar-track {
+    background: transparent !important;
+}
+.brand-scroll::-webkit-scrollbar-thumb {
+    background-color: theme('colors.crest-primary') !important;
+    border-radius: 9999px !important;
+    border: none !important;
+}
+.brand-scroll::-webkit-scrollbar-thumb:hover {
+    background-color: theme('colors.crest-primary-dark') !important;
+}
+.brand-scroll::-webkit-scrollbar-button {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
