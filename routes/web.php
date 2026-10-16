@@ -26,9 +26,11 @@ Route::get('/contact', function () {
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', fn () => view('dashboard'))->name('customer.dashboard');
+Route::get('/shipments', fn () => view('shipments'))->name('customer.shipments');
+Route::get('/quote', fn () => view('quote'))->name('customer.quote');
+Route::get('/invoices', fn () => view('invoices'))->name('customer.invoices');
+Route::get('/account', fn () => view('profile'))->name('customer.profile');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

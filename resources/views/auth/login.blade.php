@@ -136,7 +136,11 @@
                           get emailValid() { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email) },
                           password: '',
                           hasServerError: {{ $errors->any() ? 'true' : 'false' }}
-                      }">
+                      }"
+                      {{-- TEMP (frontend-only demo, no backend yet): send the user straight to the
+                           customer dashboard instead of actually posting to /login. Remove this
+                           @submit.prevent line once real authentication is wired up. --}}
+                      @submit.prevent="window.location.href = '{{ route('customer.dashboard') }}'">
                     @csrf
 
                     {{-- Email --}}
